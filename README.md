@@ -4,6 +4,7 @@ Local RAG pipeline for procurement documents with OpenCV table detection and a C
 
 ## Contents
 - [What I Built & Why](#what-i-built--why)
+- [Decisions & Tradeoffs](#decisions--tradeoffs)
 - [Architecture & Flow](#architecture--flow)
 - [Components & Versions](#components--versions)
 - [Runbook (Setup -> Generate -> Detect -> Index -> Query)](#runbook-setup---generate---detect---index---query)
@@ -16,6 +17,11 @@ Local RAG pipeline for procurement documents with OpenCV table detection and a C
 - **Table detection**: OpenCV pipeline with debug overlays to QA layout extraction.
 - **RAG pipeline**: chunk -> embed (Gemini) -> store (Chroma) -> retrieve -> answer.
 - **CLI + n8n orchestration**: automate runs while keeping logic in Python.
+
+## Decisions & Tradeoffs
+- **Synthetic data** to guarantee repeatability; tradeoff is less realism than production data.
+- **Local ChromaDB** for fast iteration; tradeoff is single-node storage.
+- **CLI-first** to keep automation clean; tradeoff is less interactive exploration.
 
 ## Architecture & Flow
 ```
@@ -68,6 +74,8 @@ Synthetic data -> Table detection -> Chunk + embed -> ChromaDB -> Query + Gemini
    ```
 
 ## Results & Evidence
+- 120 synthetic records and an 8x5 table image created per run (default settings).
+- Sample query returns the top vendor in the dataset (example: Greenfield Industrials).
 - Table detection overlay (example output):
 
 ![Table Overlay](docs/screenshots/table_overlay.png)
