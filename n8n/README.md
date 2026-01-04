@@ -1,10 +1,10 @@
-# n8n Orchestration (Project 2)
+# n8n Orchestration (AI Procurement RAG Lab)
 
 This workflow runs the Python pipeline on the host from n8n in Docker via SSH.
 
 ## 1) Start n8n (Docker)
 ```bash
-REPO_ROOT="/path/to/project-2-ai-procurement-agent"
+REPO_ROOT="/path/to/ai-procurement-rag-lab"
 
 docker run --rm -it --name n8n -p 5678:5678 \
   --add-host=host.docker.internal:host-gateway \

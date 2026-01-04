@@ -11,7 +11,7 @@
     },
     {
       "parameters": {
-        "command": "bash -lc 'cd /path/to/project-2-ai-procurement-agent && source .venv/bin/activate && python data/generate_synthetic.py --out-dir data'"
+        "command": "bash -lc 'cd /path/to/ai-procurement-rag-lab && source .venv/bin/activate && python data/generate_synthetic.py --out-dir data'"
       },
       "id": "2",
       "name": "Generate Synthetic Data",
@@ -21,7 +21,7 @@
     },
     {
       "parameters": {
-        "command": "bash -lc 'cd /path/to/project-2-ai-procurement-agent && source .venv/bin/activate && python cv/table_detect.py --image data/synthetic_table.png --out-dir outputs'"
+        "command": "bash -lc 'cd /path/to/ai-procurement-rag-lab && source .venv/bin/activate && python cv/table_detect.py --image data/synthetic_table.png --out-dir outputs'"
       },
       "id": "3",
       "name": "Detect Tables",
@@ -31,7 +31,7 @@
     },
     {
       "parameters": {
-        "command": "bash -lc 'cd /path/to/project-2-ai-procurement-agent && source .venv/bin/activate && python -m rag.index --data-dir data --persist-dir chroma --collection procurement_docs'"
+        "command": "bash -lc 'cd /path/to/ai-procurement-rag-lab && source .venv/bin/activate && python -m rag.index --data-dir data --persist-dir chroma --collection procurement_docs'"
       },
       "id": "4",
       "name": "Index Documents",
@@ -41,7 +41,7 @@
     },
     {
       "parameters": {
-        "command": "bash -lc 'cd /path/to/project-2-ai-procurement-agent && source .venv/bin/activate && python -m rag.query --query \"Which vendor appears most often in the sample data?\" --persist-dir chroma --collection procurement_docs --show-sources'"
+        "command": "bash -lc 'cd /path/to/ai-procurement-rag-lab && source .venv/bin/activate && python -m rag.query --query \"Which vendor appears most often in the sample data?\" --persist-dir chroma --collection procurement_docs --show-sources'"
       },
       "id": "5",
       "name": "Query RAG",
